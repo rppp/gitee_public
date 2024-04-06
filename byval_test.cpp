@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
-
+ 
 /*
 
 cpu i7-10700 win7 x64
