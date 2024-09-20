@@ -35,10 +35,15 @@ def single_request(url):
         response = requests.get(url, timeout=2)
         end_time = time.time()
         delay = end_time - start_time
-        return (0 if response.status_code == 200 and response.text.strip() == g_s.strip() else 1, delay)
+        if response.status_code == 200 and response.text.strip() == g_s.strip():
+            return (0, delay) 
+        else: 
+            print('error. delay ', delay)
+            return (1, delay)
     except requests.RequestException:
         end_time = time.time()
         delay = end_time - start_time
+        print('error. delay ', delay)
         return (1, delay)  # 请求失败
 
 def http_test(url, count):
@@ -52,7 +57,7 @@ def main():
     print("开始网络测试...")
     
     url = "http://b.rppp.ren/" #发现用500次，5g郴州会丢包，但电信宽带不会
-    count = 3000*3*60*4 #3000次大约21秒
+    count = 3000*3*60 #3000次大约21秒
     
     print(f"\n测试失败率和延迟... URL: {url}, 次数: {count}")
     start_time = time.time()
