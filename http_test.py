@@ -25,8 +25,8 @@ def http_test(url, count):
 def main():
     print("开始网络测试...")
     
-    url = "http://www.hao123.com"
-    count = 100
+    url = "http://cn.bing.com" #发现用500次，5g郴州会丢包，但电信宽带不会
+    count = 500
     
     print(f"\n测试失败率和延迟... URL: {url}, 次数: {count}")
     start_time = time.time()
