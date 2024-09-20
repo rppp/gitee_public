@@ -16,7 +16,7 @@ def single_request(url):
         return (1, delay)  # 请求失败
 
 def http_test(url, count):
-    pool = Pool(processes=min(cpu_count(), 20))  # 限制最大进程数
+    pool = Pool(processes=60)  # 限制最大进程数
     results = pool.map(single_request, [url] * count)
     pool.close()
     pool.join()
@@ -25,8 +25,8 @@ def http_test(url, count):
 def main():
     print("开始网络测试...")
     
-    url = "http://cn.bing.com" #发现用500次，5g郴州会丢包，但电信宽带不会
-    count = 500
+    url = "http://b.rppp.ren/" #发现用500次，5g郴州会丢包，但电信宽带不会
+    count = 1500
     
     print(f"\n测试失败率和延迟... URL: {url}, 次数: {count}")
     start_time = time.time()
