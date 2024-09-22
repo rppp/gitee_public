@@ -4,27 +4,11 @@ import time
 import statistics
 
 g_s = '''
-<!DOCTYPE html>
 <html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
+<head><title>404 Not Found</title></head>
 <body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
-
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx/1.27.1</center>
 </body>
 </html>
 '''
@@ -32,18 +16,18 @@ Commercial support is available at
 def single_request(url):
     start_time = time.time()
     try:
-        response = requests.get(url, timeout=2)
+        response = requests.get(url, timeout=4)
         end_time = time.time()
         delay = end_time - start_time
-        if response.status_code == 200 and response.text.strip() == g_s.strip():
+        if response.status_code == 404 and "<h1>404 Not Found</h1>" in response.text:
             return (0, delay) 
         else: 
-            print('error. delay ', delay)
+            print('error1. delay ', delay)
             return (1, delay)
     except requests.RequestException:
         end_time = time.time()
         delay = end_time - start_time
-        print('error. delay ', delay)
+        print('error2. delay ', delay)
         return (1, delay)  # 请求失败
 
 def http_test(url, count):
@@ -57,7 +41,7 @@ def main():
     print("开始网络测试...")
     
     url = "http://b.rppp.ren/" #发现用500次，5g郴州会丢包，但电信宽带不会
-    count = 3000*3*60 #3000次大约21秒
+    count = 3000 #3000次大约21秒
     
     print(f"\n测试失败率和延迟... URL: {url}, 次数: {count}")
     start_time = time.time()
