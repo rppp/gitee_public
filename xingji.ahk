@@ -1,0 +1,99 @@
+$1::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(11)
+    }
+    else
+    {
+        SendInput(1)
+    }
+}
+$2::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(22)
+    }
+    else
+    {
+        SendInput(2)
+    }
+}
+$3::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(33)
+    }
+    else
+    {
+        SendInput(3)
+    }
+}
+$4::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(44)
+    }
+    else
+    {
+        SendInput(4)
+    }
+}
+$5::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(55)
+    }
+    else
+    {
+        SendInput(5)
+    }
+}
+$6::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(66)
+    }
+    else
+    {
+        SendInput(6)
+    }
+}
+$7::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(77)
+    }
+    else
+    {
+        SendInput(7)
+    }
+}
+$8::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(88)
+    }
+    else
+    {
+        SendInput(8)
+    }
+}
+$9::
+{
+    if not GetKeyState("Ctrl", "P")
+    {
+        SendInput(99)
+    }
+    else
+    {
+        SendInput(9)
+    }
+}
